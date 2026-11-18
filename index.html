@@ -3,217 +3,156 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071426">
-  <meta name="description" content="JOJO AERO — aviation, aircraft spotting, creator stories and aviation career handbooks.">
-  <title>JOJO AERO | Bigger Skies. Bigger Dreams.</title>
+  <meta name="theme-color" content="#061522">
+  <title>JOJO AERO | Aviation Photography & Career Handbook</title>
+  <meta name="description" content="Aviation photography by JOJO AERO and The Aviation Career Handbook — India Edition 2026. Learn, prepare, take off.">
+  <meta name="author" content="JOJO AERO">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     :root {
-      --navy: #071426;
-      --navy-2: #0c2038;
-      --navy-3: #132d49;
-      --gold: #d9ad55;
-      --gold-light: #f2d28d;
-      --white: #f7f8fb;
-      --muted: #aeb9c8;
-      --line: rgba(217,173,85,.25);
-      --panel: rgba(255,255,255,.055);
-      --radius: 20px;
-      --shadow: 0 18px 50px rgba(0,0,0,.28);
+      --navy:#061522; --navy2:#0b2233; --ink:#102638; --muted:#607486;
+      --gold:#e9b96d; --paper:#f4f7f8; --white:#fff; --line:#dce5e9;
+      --radius:20px; --shadow:0 18px 50px rgba(5,22,34,.12);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
-    body {
-      margin: 0; color: var(--white);
-      background: radial-gradient(ellipse at 80% 0%, #173454 0%, var(--navy) 42%, #050d19 100%);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--paper); line-height:1.6; }
+    body.modal-open { overflow:hidden; }
+    a { color:inherit; text-decoration:none; }
+    button,input,textarea,select { font:inherit; }
+    button { cursor:pointer; }
+    img { display:block; max-width:100%; }
+    .container { width:min(1160px,calc(100% - 40px)); margin-inline:auto; }
+    .topbar { position:sticky; top:0; z-index:30; background:rgba(6,21,34,.96); backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,.09); }
+    .nav { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { color:#fff; font-weight:900; letter-spacing:.16em; font-size:18px; }
+    .brand span { color:var(--gold); }
+    .nav-links { display:flex; align-items:center; gap:25px; color:#d9e3e9; font-size:13px; font-weight:700; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta,.btn { display:inline-flex; justify-content:center; align-items:center; gap:9px; border:0; border-radius:999px; padding:12px 19px; font-weight:800; font-size:13px; transition:.2s ease; }
+    .nav-cta,.btn-gold { background:var(--gold); color:#142331; }
+    .btn-dark { background:var(--navy); color:#fff; }
+    .btn-outline { border:1px solid rgba(255,255,255,.4); color:#fff; background:transparent; }
+    .btn:hover,.nav-cta:hover { transform:translateY(-2px); filter:brightness(1.04); }
+    .menu-toggle { display:none; color:#fff; background:none; border:1px solid #526575; border-radius:10px; padding:8px 11px; }
+    .hero { position:relative; overflow:hidden; color:#fff; background:linear-gradient(110deg,rgba(4,17,28,.96),rgba(4,17,28,.72)),url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2000&q=85") center/cover; }
+    .hero:after { content:""; position:absolute; width:440px; height:440px; border:1px solid rgba(233,185,109,.25); border-radius:50%; right:-140px; top:-180px; box-shadow:0 0 0 45px rgba(233,185,109,.035),0 0 0 90px rgba(233,185,109,.025); }
+    .hero-inner { position:relative; z-index:1; min-height:590px; display:grid; align-items:center; padding-block:80px; }
+    .eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.22em; font-size:11px; font-weight:900; }
+    h1 { max-width:760px; margin:16px 0; font-size:clamp(42px,7vw,76px); line-height:1.02; letter-spacing:-.055em; }
+    h1 em { color:var(--gold); font-style:normal; }
+    .hero p { max-width:570px; color:#d4e0e7; font-size:17px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .hero-note { margin-top:42px; color:#b8c7d0; font-size:12px; letter-spacing:.04em; }
+    section { padding:86px 0; }
+    .section-head { max-width:690px; margin-bottom:34px; }
+    .section-kicker { color:#9b6c2e; font-size:11px; font-weight:900; letter-spacing:.2em; text-transform:uppercase; }
+    h2 { margin:8px 0 12px; color:var(--navy); font-size:clamp(30px,4vw,44px); line-height:1.12; letter-spacing:-.04em; }
+    .section-head p,.muted { color:var(--muted); }
+    .handbook-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+    .product-card { position:relative; overflow:hidden; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px; box-shadow:var(--shadow); }
+    .product-card.featured { border:1px solid #d5ad70; }
+    .product-tag { display:inline-block; background:#f8eedf; color:#80551f; border-radius:999px; padding:6px 11px; font-size:10px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .product-card h3 { margin:17px 0 7px; color:var(--navy); font-size:25px; }
+    .price { margin:16px 0; font-size:36px; font-weight:900; color:var(--navy); letter-spacing:-.04em; }
+    .price small { color:var(--muted); font-size:12px; font-weight:600; letter-spacing:0; }
+    .feature-list { padding:0; margin:18px 0 25px; list-style:none; color:#42596a; font-size:14px; }
+    .feature-list li { padding:7px 0; border-bottom:1px solid #edf1f3; }
+    .feature-list li:before { content:"✓"; color:#9b6c2e; font-weight:900; margin-right:10px; }
+    .membership { background:var(--navy); color:#fff; }
+    .membership h2 { color:#fff; }
+    .membership .section-head p { color:#c2d0d9; }
+    .member-panel { display:grid; grid-template-columns:1.3fr .7fr; gap:35px; align-items:center; padding:34px; border:1px solid rgba(233,185,109,.35); border-radius:var(--radius); background:linear-gradient(135deg,#0e2b40,#081a29); }
+    .member-panel h3 { margin:0 0 10px; font-size:28px; }
+    .member-price { color:var(--gold); font-size:34px; font-weight:900; }
+    .member-price small { color:#c3d0d8; font-size:13px; font-weight:600; }
+    .member-points { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0; }
+    .member-points span { border:1px solid rgba(255,255,255,.17); border-radius:999px; padding:7px 12px; color:#d5e0e7; font-size:12px; }
+    .member-action { text-align:center; padding:25px; background:rgba(255,255,255,.05); border-radius:16px; }
+    .member-action p { color:#b9c8d1; font-size:13px; }
+    .youtube-band { background:#e8eef1; }
+    .youtube-card { display:flex; align-items:center; justify-content:space-between; gap:25px; padding:28px 32px; background:#fff; border-radius:var(--radius); border:1px solid var(--line); }
+    .youtube-card h3 { margin:0 0 5px; color:var(--navy); font-size:23px; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+    .gallery-item { overflow:hidden; border:0; padding:0; background:#dbe4e8; border-radius:14px; aspect-ratio:4/5; }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; object-position:center; transition:transform .35s ease; }
+    .gallery-item:hover img { transform:scale(1.06); }
+    .gallery-placeholder { height:100%; display:grid; place-items:center; padding:12px; color:#63798a; text-align:center; font-size:12px; background:linear-gradient(145deg,#dce7eb,#b8cbd4); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:42px; align-items:center; }
+    .about-visual { min-height:330px; border-radius:var(--radius); background:linear-gradient(135deg,rgba(6,21,34,.2),rgba(6,21,34,.7)),url("https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1200&q=85") center/cover; box-shadow:var(--shadow); }
+    .about-copy p { color:var(--muted); }
+    .notice { padding:18px 20px; border-left:3px solid var(--gold); background:#fff8ec; color:#6b5739; border-radius:0 12px 12px 0; font-size:13px; }
+    footer { background:#04111c; color:#c1ced7; padding:38px 0; }
+    .footer-inner { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+    footer .brand { display:block; margin-bottom:8px; }
+    footer p { margin:0; font-size:12px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; font-size:12px; }
+    .footer-links a:hover { color:var(--gold); }
+    .modal { display:none; position:fixed; inset:0; z-index:100; align-items:center; justify-content:center; padding:18px; background:rgba(2,10,17,.78); }
+    .modal.is-open { display:flex; }
+    .modal-box { position:relative; width:min(520px,100%); max-height:90vh; overflow:auto; padding:30px; background:#fff; border-radius:20px; box-shadow:0 25px 80px rgba(0,0,0,.3); }
+    .modal-box h2 { font-size:27px; margin:0 36px 8px 0; }
+    .modal-box p { color:var(--muted); font-size:13px; }
+    .close { position:absolute; top:14px; right:15px; border:0; background:#edf2f4; color:#263b4a; width:34px; height:34px; border-radius:50%; font-size:18px; }
+    .field { margin-top:15px; }
+    .field label { display:block; margin-bottom:6px; color:#31495a; font-size:12px; font-weight:800; }
+    .field input,.field textarea,.field select { width:100%; border:1px solid #d5e0e5; border-radius:10px; padding:12px 13px; color:var(--ink); background:#fff; outline:none; }
+    .field input:focus,.field textarea:focus,.field select:focus { border-color:#b98a4c; box-shadow:0 0 0 3px rgba(233,185,109,.2); }
+    .field textarea { min-height:90px; resize:vertical; }
+    .modal-submit { width:100%; margin-top:20px; }
+    .fine-print { font-size:11px!important; color:#718392!important; }
+    .lightbox { display:none; position:fixed; inset:0; z-index:120; align-items:center; justify-content:center; padding:20px; background:rgba(0,0,0,.92); }
+    .lightbox.is-open { display:flex; }
+    .lightbox img { max-width:min(1100px,94vw); max-height:86vh; object-fit:contain; }
+    .lightbox-close { position:absolute; top:18px; right:20px; color:#fff; background:transparent; border:1px solid #77838b; border-radius:50%; width:42px; height:42px; font-size:22px; }
+    @media (max-width:850px) {
+      .nav-links { display:none; position:absolute; top:76px; left:0; right:0; padding:20px; background:#061522; flex-direction:column; align-items:flex-start; }
+      .nav-links.is-open { display:flex; }
+      .menu-toggle { display:block; }
+      .nav-cta { display:none; }
+      .gallery-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+      .member-panel,.about-grid { grid-template-columns:1fr; }
     }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    .container { width: min(1140px, calc(100% - 40px)); margin: auto; }
-    .site-header {
-      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px);
-      background: rgba(5,14,27,.88); border-bottom: 1px solid var(--line);
+    @media (max-width:600px) {
+      .container { width:min(100% - 28px,1160px); }
+      .hero-inner { min-height:550px; padding-block:65px; }
+      section { padding:65px 0; }
+      .handbook-grid { grid-template-columns:1fr; }
+      .gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+      .youtube-card { align-items:flex-start; flex-direction:column; padding:23px; }
+      .product-card { padding:24px; }
+      .member-panel { padding:23px; }
+      .modal-box { padding:25px 20px; }
     }
-    .nav {
-      min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
-    }
-    .brand { font-weight: 900; letter-spacing: .16em; font-size: 1.12rem; white-space: nowrap; }
-    .brand span { color: var(--gold); }
-    .navlinks { display: flex; align-items: center; gap: clamp(12px,2vw,25px); flex-wrap: wrap; justify-content: flex-end; }
-    .navlinks a { color: #d5dce6; font-size: .88rem; transition: color .2s; }
-    .navlinks a:hover { color: var(--gold-light); }
-    .navlinks .nav-cta { padding: 9px 15px; border: 1px solid var(--gold); border-radius: 999px; color: var(--gold-light); }
-    .hero { min-height: 620px; display: grid; align-items: center; position: relative; overflow: hidden; }
-    .hero:before {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(90deg, rgba(5,14,27,.98) 0%, rgba(5,14,27,.78) 48%, rgba(5,14,27,.2) 100%),
-        radial-gradient(ellipse at 78% 48%, rgba(217,173,85,.18), transparent 45%);
-      pointer-events: none;
-    }
-    .hero:after {
-      content: "✦"; position: absolute; right: 8%; top: 15%; font-size: clamp(120px,24vw,310px);
-      color: rgba(217,173,85,.07); transform: rotate(-18deg); pointer-events: none;
-    }
-    .hero-content { position: relative; max-width: 720px; padding: 90px 0; }
-    .eyebrow { color: var(--gold-light); text-transform: uppercase; letter-spacing: .22em; font-size: .76rem; font-weight: 800; }
-    h1 { font-size: clamp(2.8rem,7vw,5.6rem); line-height: .98; letter-spacing: -.045em; margin: 18px 0; }
-    h1 span { color: var(--gold); }
-    .hero p { color: #c3cedb; max-width: 590px; font-size: 1.1rem; }
-    .actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 30px; }
-    .btn {
-      display: inline-flex; justify-content: center; align-items: center; gap: 8px;
-      padding: 12px 20px; border-radius: 999px; border: 1px solid var(--gold);
-      background: var(--gold); color: #111827; font-weight: 800; cursor: pointer; transition: .2s;
-    }
-    .btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
-    .btn-outline { background: transparent; color: var(--gold-light); }
-    .stats-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.025); }
-    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; padding: 22px 0; text-align: center; }
-    .stats strong { display: block; color: var(--gold-light); font-size: 1.05rem; }
-    .stats span { color: var(--muted); font-size: .82rem; }
-    section { padding: 86px 0; }
-    .section-head { max-width: 720px; margin-bottom: 34px; }
-    .section-head h2 { margin: 8px 0 10px; font-size: clamp(2rem,4vw,3rem); line-height: 1.1; }
-    .section-head p { color: var(--muted); margin: 0; }
-    .gold { color: var(--gold-light); }
-    .feature-grid, .handbook-grid, .gallery-grid { display: grid; gap: 18px; }
-    .feature-grid { grid-template-columns: repeat(3,1fr); }
-    .panel, .handbook-card, .gallery-tile {
-      border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow);
-    }
-    .panel { padding: 25px; }
-    .panel .symbol { color: var(--gold); font-size: 1.6rem; }
-    .panel h3 { margin: 10px 0 6px; }
-    .panel p { color: var(--muted); margin: 0; font-size: .94rem; }
-    .membership-wrap {
-      display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center;
-      padding: clamp(25px,5vw,48px); border: 1px solid var(--line); border-radius: 28px;
-      background: linear-gradient(135deg, rgba(217,173,85,.12), rgba(255,255,255,.035));
-    }
-    .membership-wrap h2 { font-size: clamp(2rem,4vw,3rem); line-height: 1.1; margin: 8px 0 12px; }
-    .membership-wrap p, .muted { color: var(--muted); }
-    .price-box { text-align: center; padding: 26px; border-radius: 22px; background: rgba(4,12,23,.55); border: 1px solid var(--line); }
-    .price { font-size: 2.8rem; font-weight: 900; color: var(--gold-light); line-height: 1.1; }
-    .price small { font-size: .95rem; color: var(--muted); font-weight: 500; }
-    .handbook-grid { grid-template-columns: repeat(2,1fr); }
-    .handbook-card { padding: 30px; position: relative; overflow: hidden; }
-    .handbook-card:after { content: "JOJO AERO"; position: absolute; right: -8px; bottom: -18px; color: rgba(217,173,85,.055); font-weight: 1000; font-size: 3.4rem; letter-spacing: .1em; }
-    .handbook-card.premium { background: linear-gradient(145deg, rgba(217,173,85,.13), rgba(255,255,255,.04)); }
-    .book-label { display: inline-block; color: var(--gold-light); border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; font-size: .73rem; text-transform: uppercase; letter-spacing: .12em; }
-    .handbook-card h3 { font-size: 1.6rem; margin: 16px 0 8px; }
-    .book-price { color: var(--gold-light); font-size: 2.25rem; font-weight: 900; margin: 15px 0; }
-    .handbook-card p, .handbook-card li { color: var(--muted); }
-    .handbook-card ul { padding-left: 19px; min-height: 95px; }
-    .handbook-card .btn { position: relative; z-index: 1; }
-    .notice { margin-top: 20px; padding: 16px 18px; border-left: 3px solid var(--gold); background: rgba(217,173,85,.07); border-radius: 0 12px 12px 0; color: #cbd4df; font-size: .9rem; }
-    .gallery-grid { grid-template-columns: repeat(3,1fr); }
-    .gallery-tile { min-height: 185px; display: grid; place-items: center; text-align: center; padding: 22px; background: linear-gradient(145deg, rgba(19,45,73,.9), rgba(255,255,255,.035)); }
-    .gallery-tile span { display: block; font-size: 2rem; color: var(--gold); }
-    .gallery-tile strong { display: block; margin-top: 8px; }
-    .gallery-tile small { color: var(--muted); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
-    .about-card { padding: 30px; border: 1px solid var(--line); border-radius: 24px; background: var(--panel); }
-    .about-card p { color: var(--muted); }
-    .social-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-    footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: .88rem; }
-    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .footer-brand { color: var(--white); font-weight: 900; letter-spacing: .15em; }
-    .footer-brand span { color: var(--gold); }
-    .modal {
-      display: none; position: fixed; inset: 0; z-index: 100; padding: 20px;
-      background: rgba(0,0,0,.76); backdrop-filter: blur(8px); align-items: center; justify-content: center;
-    }
-    .modal.show { display: flex; }
-    .modal-box {
-      width: min(500px,100%); position: relative; padding: 34px; border-radius: 24px;
-      border: 1px solid var(--gold); background: #0b1c31; box-shadow: 0 25px 90px rgba(0,0,0,.55); text-align: center;
-    }
-    .modal-box h2 { margin: 10px 0; font-size: 2rem; }
-    .modal-box p { color: var(--muted); }
-    .close {
-      position: absolute; top: 12px; right: 15px; border: 0; color: var(--muted);
-      background: transparent; font-size: 1.7rem; cursor: pointer;
-    }
-    @media (max-width: 760px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 15px 0; gap: 12px; }
-      .navlinks { justify-content: flex-start; gap: 12px 17px; }
-      .navlinks a { font-size: .82rem; }
-      .hero { min-height: 540px; }
-      .stats { grid-template-columns: 1fr; gap: 12px; }
-      .feature-grid, .handbook-grid, .gallery-grid, .about-grid, .membership-wrap { grid-template-columns: 1fr; }
-      section { padding: 65px 0; }
-      .handbook-card ul { min-height: auto; }
+    @media (prefers-reduced-motion:reduce) {
+      *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition:none!important; }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
+  <header class="topbar">
     <div class="container nav">
-      <a class="brand" href="#home">JOJO <span>AERO</span></a>
-      <nav class="navlinks" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#membership">Membership</a>
-        <a href="#handbooks">Handbooks</a>
-        <a href="#youtube">YouTube</a>
-        <a href="#about">About</a>
+      <a class="brand" href="#home" aria-label="JOJO AERO home">JOJO <span>AERO</span></a>
+      <nav class="nav-links" id="siteNav" aria-label="Main navigation">
+        <a href="#handbooks">Handbooks</a><a href="#membership">Membership</a><a href="#gallery">Gallery</a><a href="#about">About</a><a href="#contact">Contact</a>
       </nav>
+      <a class="nav-cta" href="#handbooks">Explore handbooks</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="container hero-content">
-        <div class="eyebrow">Aviation • Exploration • Community</div>
-        <h1>BIGGER SKIES.<br><span>BIGGER DREAMS.</span></h1>
-        <p>Welcome to JOJO AERO — a space for aviation lovers, aircraft spotting, behind-the-scenes stories and people building their future in aviation.</p>
-        <div class="actions">
-          <a class="btn" href="#handbooks">Explore Handbooks</a>
-          <a class="btn btn-outline" href="https://www.instagram.com/jojo_.aero/" target="_blank" rel="noopener">Follow on Instagram</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="stats-strip">
-      <div class="container stats">
-        <div><strong>AVIATION CONTENT</strong><span>Aircraft, airports and journeys</span></div>
-        <div><strong>JOEVERSE</strong><span>Stories beyond the runway</span></div>
-        <div><strong>LEARN • PREPARE • FLY HIGH</strong><span>Resources for aviation aspirants</span></div>
-      </div>
-    </div>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">What you'll find here</div>
-          <h2>More than just <span class="gold">planespotting.</span></h2>
-          <p>Explore aviation through real-world experiences, creator updates and resources designed to help you keep moving towards your goals.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="panel"><div class="symbol">✈</div><h3>Aviation & Spotting</h3><p>Aircraft moments, airport operations, aviation stories and original content.</p></article>
-          <article class="panel"><div class="symbol">◎</div><h3>Behind the Scenes</h3><p>Creator journey, airport life, lessons learned and the people behind every operation.</p></article>
-          <article class="panel"><div class="symbol">✦</div><h3>Career Resources</h3><p>Handbooks and preparation resources for people exploring aviation careers.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="membership">
-      <div class="container">
-        <div class="membership-wrap">
-          <div>
-            <div class="eyebrow">Join the community</div>
-            <h2>Welcome to the <span class="gold">JoeVerse.</span></h2>
-            <p>Become a Jojo Aero Member and be part of a community built around aviation, travel, aircraft spotting, behind-the-scenes stories and the creator journey.</p>
-            <p class="muted">Keep watching. Keep exploring. Keep flying high.</p>
-            <button class="btn" type="button" onclick="openModal('memberModal')">Become a Member</button>
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow">Aviation • Photography • Careers</div>
+          <h1>Every flight has a story.<br><em>Find yours.</em></h1>
+          <p>Welcome to JOJO AERO — a space for aviation lovers, aircraft photography, behind-the-scenes moments and practical guidance for building a career in aviation.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#handbooks">Explore the handbook</a>
+            <a class="btn btn-outline" href="#gallery">View photography</a>
           </div>
-          <div class="price-box">
-            <div class="eyebrow">Monthly membership</div>
-            <div class="price">₹199 <small>/ month</small></div>
-            <p class="muted">One membership. A closer view of the Jojo Aero journey.</p>
-            <button class="btn btn-outline" type="button" onclick="openModal('memberModal')">Membership Enquiry</button>
-          </div>
+          <div class="hero-note">KEEP WATCHING. KEEP EXPLORING. KEEP FLYING HIGH.</div>
         </div>
       </div>
     </section>
@@ -221,143 +160,267 @@
     <section id="handbooks">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">JOJO AERO Store</div>
-          <h2>Aviation career <span class="gold">handbooks.</span></h2>
-          <p>Choose the edition that suits your preparation journey. Both are one-time purchases and are supplied privately after the enquiry and purchase are confirmed.</p>
+          <div class="section-kicker">Learn • Prepare • Take off</div>
+          <h2>The Aviation Career Handbook</h2>
+          <p>A practical India-focused guide for people exploring aviation careers. Choose the edition that suits your preparation needs.</p>
         </div>
         <div class="handbook-grid">
-          <article class="handbook-card">
-            <span class="book-label">Standard Edition</span>
-            <h3>JOJO AERO Aviation Career Handbook</h3>
-            <p>A career-focused handbook for readers exploring opportunities and pathways across aviation.</p>
-            <div class="book-price">₹4,999 <span class="muted" style="font-size:.9rem;font-weight:500">one-time</span></div>
-            <ul>
-              <li>Standard handbook edition</li>
-              <li>Digital PDF supplied privately</li>
-              <li>Enquiry and purchase confirmation by email</li>
+          <article class="product-card">
+            <span class="product-tag">Standard edition</span>
+            <h3>Build your aviation foundation</h3>
+            <p class="muted">A structured starting point for understanding aviation careers and preparing for opportunities.</p>
+            <div class="price">₹4,999 <small>one-time</small></div>
+            <ul class="feature-list">
+              <li>Overview of aviation career paths</li>
+              <li>Airport operations and passenger journey basics</li>
+              <li>Key aviation terms and abbreviations</li>
+              <li>Interview preparation fundamentals</li>
             </ul>
-            <a class="btn" href="mailto:flyjoexpo@gmail.com?subject=JOJO%20AERO%20Standard%20Handbook%20Enquiry&body=Hello%20JOJO%20AERO%2C%0A%0AI%20am%20interested%20in%20the%20Standard%20Aviation%20Career%20Handbook%20(₹4%2C999).%0A%0APlease%20share%20the%20purchase%20details.%0A%0AName%3A%0AContact%3A">Enquire for Standard</a>
+            <button class="btn btn-dark" type="button" data-handbook="Standard Edition">Enquire about Standard</button>
           </article>
-          <article class="handbook-card premium">
-            <span class="book-label">Premium Edition</span>
-            <h3>JOJO AERO Premium Preparation Workbook</h3>
-            <p>A premium preparation resource for taking the next steps in your aviation career journey.</p>
-            <div class="book-price">₹7,999 <span class="muted" style="font-size:.9rem;font-weight:500">one-time</span></div>
-            <ul>
-              <li>Premium workbook edition</li>
-              <li>Preparation-focused resources</li>
-              <li>Digital PDF supplied privately</li>
+          <article class="product-card featured">
+            <span class="product-tag">Premium edition</span>
+            <h3>Prepare with more depth</h3>
+            <p class="muted">An expanded learning edition for readers who want a broader reference for their aviation journey.</p>
+            <div class="price">₹7,999 <small>one-time</small></div>
+            <ul class="feature-list">
+              <li>Everything in the Standard edition</li>
+              <li>Expanded interview and service scenarios</li>
+              <li>Airline, airport and ground-operations topics</li>
+              <li>Additional preparation and reference material</li>
             </ul>
-            <a class="btn" href="mailto:flyjoexpo@gmail.com?subject=JOJO%20AERO%20Premium%20Workbook%20Enquiry&body=Hello%20JOJO%20AERO%2C%0A%0AI%20am%20interested%20in%20the%20Premium%20Preparation%20Workbook%20(₹7%2C999).%0A%0APlease%20share%20the%20purchase%20details.%0A%0AName%3A%0AContact%3A">Enquire for Premium</a>
+            <button class="btn btn-gold" type="button" data-handbook="Premium Edition">Enquire about Premium</button>
           </article>
         </div>
-        <div class="notice"><strong>Important:</strong> Online payment and automatic delivery are not connected yet. These buttons open an email enquiry only. Do not upload the protected PDF files to this public website; share the relevant file and password privately only after you have verified the purchase.</div>
+        <p class="fine-print" style="margin-top:18px">The handbook is an independent educational resource. JOJO AERO does not hire candidates or guarantee, promise or arrange employment. Availability and final contents will be confirmed by email.</p>
+      </div>
+    </section>
+
+    <section class="membership" id="membership">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Join the community</div>
+          <h2>Welcome to JoeVerse</h2>
+          <p>Come closer to the world behind the camera — aviation, travel, aircraft spotting, creator moments and the journey of building JOJO AERO.</p>
+        </div>
+        <div class="member-panel">
+          <div>
+            <h3>JOJO AERO Member</h3>
+            <div class="member-price">₹199 <small>/ month</small></div>
+            <p style="color:#c2d0d9">A community for people who love aviation and want to keep exploring together.</p>
+            <div class="member-points"><span>Behind-the-scenes</span><span>Aircraft spotting</span><span>Creator journey</span><span>JoeVerse updates</span></div>
+            <p class="fine-print" style="color:#aebdc7!important">Membership enrolment and recurring payment are not automated on this website yet. Send an enquiry to receive the current details.</p>
+          </div>
+          <div class="member-action">
+            <div style="font-size:38px">✈</div>
+            <h3 style="margin:8px 0">Fly with the community</h3>
+            <p>Send a membership enquiry and we’ll reply with the next steps.</p>
+            <button class="btn btn-gold" type="button" id="membershipButton">Join the membership</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="youtube-band">
+      <div class="container youtube-card">
+        <div><div class="section-kicker">More aviation moments</div><h3>Follow the JOJO AERO journey on YouTube</h3><p class="muted" style="margin:0">Aircraft, airports, aviation stories and short-form videos.</p></div>
+        <a class="btn btn-dark" href="https://www.youtube.com/@jojoaero" target="_blank" rel="noopener noreferrer">Visit YouTube channel ↗</a>
       </div>
     </section>
 
     <section id="gallery">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">The view from here</div>
-          <h2>Explore the <span class="gold">gallery.</span></h2>
-          <p>A home for aircraft moments, airport scenes and aviation memories. Add your selected photos or reel links here whenever you're ready.</p>
+          <div class="section-kicker">Through the lens</div>
+          <h2>Aviation photography</h2>
+          <p>Aircraft moments, airport scenes and the beauty of flight. Replace the sample image paths below with your own photographs.</p>
         </div>
-        <div class="gallery-grid">
-          <a class="gallery-tile" href="https://www.instagram.com/jojo_.aero/" target="_blank" rel="noopener"><div><span>✈</span><strong>Aircraft Spotting</strong><small>View on Instagram</small></div></a>
-          <a class="gallery-tile" href="https://www.instagram.com/jojo_.aero/" target="_blank" rel="noopener"><div><span>▧</span><strong>Airport Moments</strong><small>View on Instagram</small></div></a>
-          <a class="gallery-tile" href="https://www.instagram.com/jojo_.aero/" target="_blank" rel="noopener"><div><span>◉</span><strong>Behind the Scenes</strong><small>View on Instagram</small></div></a>
+        <div class="gallery-grid" id="galleryGrid">
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 1"><img src="images/aircraft-01.jpg" alt="Aircraft photograph 1" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 2"><img src="images/aircraft-02.jpg" alt="Aircraft photograph 2" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 3"><img src="images/aircraft-03.jpg" alt="Aircraft photograph 3" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 4"><img src="images/aircraft-04.jpg" alt="Aircraft photograph 4" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 5"><img src="images/aircraft-05.jpg" alt="Aircraft photograph 5" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 6"><img src="images/aircraft-06.jpg" alt="Aircraft photograph 6" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 7"><img src="images/aircraft-07.jpg" alt="Aircraft photograph 7" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 8"><img src="images/aircraft-08.jpg" alt="Aircraft photograph 8" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 9"><img src="images/aircraft-09.jpg" alt="Aircraft photograph 9" loading="lazy"></button>
+          <button class="gallery-item" type="button" aria-label="Open aircraft photograph 10"><img src="images/aircraft-10.jpg" alt="Aircraft photograph 10" loading="lazy"></button>
         </div>
       </div>
     </section>
 
-    <section id="youtube">
+    <section id="about" style="background:#e9eff2">
       <div class="container about-grid">
-        <div>
-          <div class="eyebrow">Watch • Subscribe • Explore</div>
-          <h2 style="font-size:clamp(2rem,4vw,3rem);line-height:1.1">Take off with <span class="gold">JOJO AERO.</span></h2>
-          <p class="muted">Discover aviation videos, aircraft moments and stories from the world of airports and flying.</p>
-          <div class="actions"><a class="btn" href="https://www.youtube.com/@jojoaero" target="_blank" rel="noopener">Visit YouTube</a></div>
-        </div>
-        <div class="about-card">
-          <div class="eyebrow">Follow the journey</div>
-          <h3>Stay connected.</h3>
-          <p>New aviation content, creator updates and stories from the JoeVerse.</p>
-          <div class="social-links">
-            <a class="btn btn-outline" href="https://www.instagram.com/jojo_.aero/" target="_blank" rel="noopener">Instagram</a>
-            <a class="btn btn-outline" href="https://www.youtube.com/@jojoaero" target="_blank" rel="noopener">YouTube</a>
-          </div>
+        <div class="about-visual" role="img" aria-label="Airplane wing above the clouds"></div>
+        <div class="about-copy">
+          <div class="section-kicker">The story behind JOJO AERO</div>
+          <h2>Built from a passion for aviation.</h2>
+          <p>JOJO AERO brings together a love for aircraft, airport operations and sharing aviation knowledge. Through photography and practical learning resources, the goal is to make the aviation world more approachable for enthusiasts and aspiring professionals.</p>
+          <p>Follow along for aircraft moments, airport stories, travel and the creator journey.</p>
+          <a class="btn btn-dark" href="https://www.instagram.com/jojo_.aero/" target="_blank" rel="noopener noreferrer">Follow @jojo_.aero ↗</a>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="contact">
       <div class="container">
         <div class="section-head">
-          <div class="eyebrow">About JOJO AERO</div>
-          <h2>Passion for aviation. <span class="gold">Purpose in every journey.</span></h2>
+          <div class="section-kicker">Get in touch</div>
+          <h2>Let’s connect.</h2>
+          <p>For handbook enquiries, membership information, collaborations or aviation-related opportunities, reach out by email or Instagram.</p>
         </div>
-        <div class="about-card">
-          <p>JOJO AERO is an aviation-focused creator platform sharing aircraft content, airport experiences, travel and the journey of building a place in the aviation world. The goal is simple: inspire curiosity, share experiences and encourage people to keep exploring bigger skies.</p>
-          <p class="gold">Keep watching. Keep exploring. Keep flying high.</p>
-          <p>For handbook enquiries, collaborations and other questions: <a class="gold" href="mailto:flyjoexpo@gmail.com">flyjoexpo@gmail.com</a></p>
+        <div class="notice">JOJO AERO is an independent aviation content and educational brand. Handbook content is for general learning and interview preparation; recruitment decisions remain with the relevant employers.</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <a class="btn btn-dark" href="mailto:flyjoexpo@gmail.com">Email JOJO AERO</a>
+          <a class="btn btn-gold" href="https://www.instagram.com/jojo_.aero/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-row">
-      <div><div class="footer-brand">JOJO <span>AERO</span></div><div>© <span id="year"></span> JOJO AERO. All rights reserved.</div></div>
-      <a href="mailto:flyjoexpo@gmail.com">flyjoexpo@gmail.com</a>
+    <div class="container footer-inner">
+      <div><a class="brand" href="#home">JOJO <span>AERO</span></a><p>© <span id="year"></span> JOJO AERO. All rights reserved.</p></div>
+      <div class="footer-links"><a href="#handbooks">Handbooks</a><a href="#membership">Membership</a><a href="https://www.instagram.com/jojo_.aero/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="mailto:flyjoexpo@gmail.com">Email</a></div>
     </div>
   </footer>
 
-  <!-- Welcome popup appears on every fresh page load; it is not stored or suppressed. -->
-  <div class="modal" id="welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="modal" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
     <div class="modal-box">
-      <button class="close" type="button" aria-label="Close" onclick="closeModal('welcomeModal')">×</button>
-      <div class="eyebrow">Welcome aboard</div>
-      <h2 id="welcomeTitle">Welcome to <span class="gold">JOJO AERO.</span></h2>
-      <p>Explore aviation, discover the JoeVerse and take the next step in your aviation journey.</p>
-      <div class="actions" style="justify-content:center">
-        <button class="btn" type="button" onclick="closeModal('welcomeModal')">Explore Website</button>
-        <button class="btn btn-outline" type="button" onclick="closeModal('welcomeModal');document.getElementById('handbooks').scrollIntoView({behavior:'smooth'})">View Handbooks</button>
-      </div>
+      <button class="close" type="button" data-close-modal aria-label="Close dialog">×</button>
+      <h2 id="enquiryTitle">Reserve your copy</h2>
+      <p style="margin:0">Send your details and we’ll reply with payment instructions and handbook availability.</p>
+      <div class="field"><label for="bookName">Selected handbook</label><input id="bookName" value="Standard Edition" readonly></div>
+      <div class="field"><label for="customerName">Your name</label><input id="customerName" autocomplete="name" placeholder="Enter your name" required></div>
+      <div class="field"><label for="customerEmail">Email address</label><input id="customerEmail" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+      <div class="field"><label for="customerNote">Message (optional)</label><textarea id="customerNote" placeholder="Any question or note?"></textarea></div>
+      <button class="btn btn-gold modal-submit" id="sendEnquiry" type="button">Send enquiry by email</button>
+      <p class="fine-print">This opens your email app with a prepared message. No payment is collected on this website.</p>
     </div>
   </div>
 
-  <!-- Membership enquiry modal; monthly membership remains separate from handbook purchases. -->
-  <div class="modal" id="memberModal" role="dialog" aria-modal="true" aria-labelledby="memberTitle">
+  <div class="modal" id="membershipModal" role="dialog" aria-modal="true" aria-labelledby="membershipTitle">
     <div class="modal-box">
-      <button class="close" type="button" aria-label="Close" onclick="closeModal('memberModal')">×</button>
-      <div class="eyebrow">JOJO AERO Member</div>
-      <h2 id="memberTitle">Join the <span class="gold">JoeVerse.</span></h2>
-      <p>Monthly membership: <strong class="gold">₹199</strong>. Membership payments are not connected on this website yet. Email us to enquire about joining.</p>
-      <a class="btn" href="mailto:flyjoexpo@gmail.com?subject=JOJO%20AERO%20Membership%20Enquiry&body=Hello%20JOJO%20AERO%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20the%20₹199%20monthly%20membership.%0A%0AName%3A%0AContact%3A">Email Membership Enquiry</a>
+      <button class="close" type="button" data-close-modal aria-label="Close dialog">×</button>
+      <h2 id="membershipTitle">Join JOJO AERO Member</h2>
+      <p>Share your details and we’ll email you with current membership information.</p>
+      <div class="field"><label for="memberName">Your name</label><input id="memberName" autocomplete="name" placeholder="Enter your name" required></div>
+      <div class="field"><label for="memberEmail">Email address</label><input id="memberEmail" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+      <button class="btn btn-gold modal-submit" id="sendMembership" type="button">Send membership enquiry</button>
+      <p class="fine-print">Membership payment and access are not automatically processed on this website.</p>
     </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photograph preview">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image">×</button>
+    <img id="lightboxImage" alt="Expanded aviation photograph">
   </div>
 
   <script>
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) modal.classList.add('show');
-    }
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) modal.classList.remove('show');
-    }
-    document.querySelectorAll('.modal').forEach(function(modal) {
-      modal.addEventListener('click', function(event) {
-        if (event.target === modal) modal.classList.remove('show');
+    (() => {
+      'use strict';
+      const EMAIL = 'flyjoexpo@gmail.com';
+      const nav = document.getElementById('siteNav');
+      const menuToggle = document.getElementById('menuToggle');
+      menuToggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(open));
       });
-    });
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') document.querySelectorAll('.modal.show').forEach(m => m.classList.remove('show'));
-    });
-    document.getElementById('year').textContent = new Date().getFullYear();
-    window.addEventListener('load', function() {
-      openModal('welcomeModal');
-    });
+      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }));
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const enquiryModal = document.getElementById('enquiryModal');
+      const membershipModal = document.getElementById('membershipModal');
+      let lastFocused = null;
+      function openModal(modal) {
+        lastFocused = document.activeElement;
+        modal.classList.add('is-open');
+        document.body.classList.add('modal-open');
+        const first = modal.querySelector('input,textarea,button');
+        if (first) first.focus();
+      }
+      function closeModal(modal) {
+        modal.classList.remove('is-open');
+        if (!document.querySelector('.modal.is-open')) document.body.classList.remove('modal-open');
+        if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+      }
+      document.querySelectorAll('[data-close-modal]').forEach(button => {
+        button.addEventListener('click', () => closeModal(button.closest('.modal')));
+      });
+      [enquiryModal,membershipModal].forEach(modal => {
+        modal.addEventListener('click', event => {
+          if (event.target === modal) closeModal(modal);
+        });
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          document.querySelectorAll('.modal.is-open').forEach(closeModal);
+          closeLightbox();
+        }
+      });
+
+      document.querySelectorAll('[data-handbook]').forEach(button => {
+        button.addEventListener('click', () => {
+          document.getElementById('bookName').value = button.dataset.handbook;
+          openModal(enquiryModal);
+        });
+      });
+      document.getElementById('sendEnquiry').addEventListener('click', () => {
+        const name = document.getElementById('customerName').value.trim();
+        const email = document.getElementById('customerEmail').value.trim();
+        const book = document.getElementById('bookName').value;
+        const note = document.getElementById('customerNote').value.trim();
+        if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          alert('Please enter your name and a valid email address.');
+          return;
+        }
+        const subject = `JOJO AERO Handbook Enquiry — ${book}`;
+        const body = `Hello JOJO AERO,\n\nI would like to enquire about the ${book}.\n\nName: ${name}\nEmail: ${email}\nMessage: ${note || 'Please share the next steps.'}\n\nThank you.`;
+        window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        closeModal(enquiryModal);
+      });
+
+      document.getElementById('membershipButton').addEventListener('click', () => openModal(membershipModal));
+      document.getElementById('sendMembership').addEventListener('click', () => {
+        const name = document.getElementById('memberName').value.trim();
+        const email = document.getElementById('memberEmail').value.trim();
+        if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          alert('Please enter your name and a valid email address.');
+          return;
+        }
+        const subject = 'JOJO AERO Member — Membership Enquiry';
+        const body = `Hello JOJO AERO,\n\nI am interested in joining JOJO AERO Member.\n\nName: ${name}\nEmail: ${email}\n\nPlease share the current membership details.\n\nThank you.`;
+        window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        closeModal(membershipModal);
+      });
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightboxImage.removeAttribute('src');
+      }
+      document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
+      document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('error', () => {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'gallery-placeholder';
+          placeholder.textContent = 'Add your photo as ' + img.getAttribute('src').split('/').pop();
+          img.replaceWith(placeholder);
+        }, { once:true });
+        img.addEventListener('click', () => {
+          if (!img.complete || !img.naturalWidth) return;
+          lightboxImage.src = img.src;
+          lightboxImage.alt = img.alt;
+          lightbox.classList.add('is-open');
+        });
+      });
+    })();
   </script>
 </body>
 </html>
